@@ -1,0 +1,15 @@
+model:
+  name: "Qwen/Qwen3-1.7B"
+  dtype: "bfloat16"
+  device: "auto"
+
+generate:
+  max_new_tokens: 200
+  temperature: 0.0
+  seed: 42
+  enable_thinking: false
+
+bench:
+  warmup_runs: 1
+  measure_runs: 3
+  prompt: "Объясни, что такое MLOps, в трёх предложениях."

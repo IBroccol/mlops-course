@@ -1,0 +1,8 @@
+.DS_Store
+*.bak
+__pycache__/
+.venv/
+*.pyc
+out1.txt
+out2.txt
+params.yaml.bak
