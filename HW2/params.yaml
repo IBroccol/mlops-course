@@ -1,0 +1,41 @@
+model:
+  name: "Qwen/Qwen3-1.7B"
+  dtype: "bfloat16"
+  device: "auto"
+
+generate:
+  max_new_tokens: 200
+  temperature: 0.0
+  seed: 42
+  enable_thinking: false
+
+bench:
+  warmup_runs: 1
+  measure_runs: 3
+  prompt: "Объясни, что такое MLOps, в трёх предложениях."
+
+hooks:
+  prompt: "Объясни, что такое MLOps, в трёх предложениях."
+  plot: "docs/activations.png"
+
+memory:
+  seq_len: 256
+  batch_size: 1
+  lr: 1.0e-5
+  repeats: 1
+
+lora:
+  alpha_ratio: 2
+  dropout: 0.0
+  configs:
+    - name: "r=8, q_proj+v_proj"
+      r: 8
+      target_modules: ["q_proj", "v_proj"]
+    - name: "r=16, все линейные"
+      r: 16
+      target_modules: ["q_proj", "k_proj", "v_proj", "o_proj",
+                       "gate_proj", "up_proj", "down_proj"]
+
+report:
+  json: "docs/report.json"
+  markdown: "docs/anatomy.md"
