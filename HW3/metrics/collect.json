@@ -1,12 +1,12 @@
 {
-  "version": "v1",
+  "version": "v2",
   "snapshot_date": "2026-09-17",
-  "source_files": 1,
-  "source_entities": 400,
-  "source_duplicates_skipped": 0,
-  "cities": 400,
-  "countries": 0,
+  "source_files": 2,
+  "source_entities": 898,
+  "source_duplicates_skipped": 1,
+  "cities": 700,
+  "countries": 198,
   "tasks_per_entity": 4,
-  "rows_written": 1600,
+  "rows_written": 3592,
   "system_prompt_variants": 5
 }

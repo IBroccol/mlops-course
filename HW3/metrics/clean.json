@@ -1,27 +1,27 @@
 {
-  "version": "v1",
-  "rows_in": 1600,
-  "rows_out": 1600,
+  "version": "v2",
+  "rows_in": 3592,
+  "rows_out": 3591,
   "dropped_length": 0,
   "dropped_exact_dup": 0,
-  "dropped_near_dup": 0,
+  "dropped_near_dup": 1,
   "pii_rows_masked": 0,
   "pii_hits": {
     "phone": 0,
     "email": 0,
     "birth_date": 0
   },
-  "groups": 400,
+  "groups": 898,
   "user_chars": {
-    "p50": 258,
-    "p90": 271,
-    "p99": 302,
+    "p50": 255,
+    "p90": 269,
+    "p99": 293,
     "max": 314
   },
   "assistant_chars": {
-    "p50": 182,
-    "p90": 287,
-    "p99": 307,
+    "p50": 181,
+    "p90": 289,
+    "p99": 308,
     "max": 337
   }
 }

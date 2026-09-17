@@ -3,7 +3,7 @@
 
 collect:
   # v1: 400 городов. v2: v1 + ещё 300 городов и 199 стран.
-  version: "v1"              # v1 | v2
+  version: "v2"              # v1 | v2
   sources:
     v1:
       - "sources/data/world_v1.jsonl"

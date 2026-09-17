@@ -1,21 +1,21 @@
 {
-  "version": "v1",
+  "version": "v2",
   "seed": 42,
   "group_key": "topic",
-  "groups_total": 400,
+  "groups_total": 898,
   "sizes": {
-    "train": 1280,
-    "val": 160,
-    "test": 160
+    "train": 2872,
+    "val": 360,
+    "test": 359
   },
   "groups": {
-    "train": 320,
-    "val": 40,
-    "test": 40
+    "train": 718,
+    "val": 90,
+    "test": 90
   },
   "ratios_actual": {
-    "train": 0.8,
-    "val": 0.1,
+    "train": 0.7998,
+    "val": 0.1003,
     "test": 0.1
   },
   "contamination": {
