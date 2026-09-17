@@ -1,0 +1,217 @@
+schema: '2.0'
+stages:
+  collect:
+    cmd: python -m src.collect
+    deps:
+    - path: sources/data
+      hash: md5
+      md5: 817ce0992e57c8e22c33260eadfa8872.dir
+      size: 223678
+      nfiles: 3
+    - path: src/collect.py
+      hash: md5
+      md5: 7cd719041a714e270762d913a7ebe98a
+      size: 10991
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    params:
+      params.yaml:
+        collect:
+          version: v1
+          sources:
+            v1:
+            - sources/data/world_v1.jsonl
+            v2:
+            - sources/data/world_v1.jsonl
+            - sources/data/world_v2.jsonl
+          snapshot_metadata: sources/data/snapshot.json
+          tasks:
+          - location
+          - population
+          - coordinates
+          - summary
+          system_prompts:
+          - Ты отвечаешь на вопросы о географии по предоставленной карточке 
+            Wikidata. Не добавляй фактов, которых нет в карточке, и указывай 
+            ограничения снимка данных.
+          - Используй только структурированные факты из карточки источника. 
+            Отвечай по-русски, кратко и не выдавай значение из снимка за 
+            актуальное на сегодняшний день.
+          - Ты справочный географический ассистент. Извлекай факты из входной 
+            карточки, сохраняй числа и идентификатор Wikidata без домыслов.
+          - Составляй проверяемые географические ответы по данным Wikidata. Если
+            поле отсутствует, скажи об этом вместо предположения.
+          - Ответь на географический вопрос строго по приложенной карточке. 
+            Различай дату снимка источника и дату, на которую могло быть 
+            измерено значение.
+    outs:
+    - path: data/raw.jsonl
+      hash: md5
+      md5: 723d291ad8998e1dfc3a108c5118759e
+      size: 1876613
+    - path: metrics/collect.json
+      hash: md5
+      md5: 13e638537560e10af77c4ae7fade60e5
+      size: 251
+  clean:
+    cmd: python -m src.clean
+    deps:
+    - path: data/raw.jsonl
+      hash: md5
+      md5: 723d291ad8998e1dfc3a108c5118759e
+      size: 1876613
+    - path: src/clean.py
+      hash: md5
+      md5: 8dfca514ed34ea8d0a0e8738288c07fe
+      size: 4578
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    - path: src/dedup.py
+      hash: md5
+      md5: fde80d28430f1612c4cbb7f0fdcc1f4d
+      size: 2757
+    - path: src/pii.py
+      hash: md5
+      md5: 2a207bfa9829a06cc83a628a053ee414
+      size: 2230
+    - path: src/schema.py
+      hash: md5
+      md5: ad834fcb5caa483d3d5d5bfabb433cc0
+      size: 3054
+    - path: src/textnorm.py
+      hash: md5
+      md5: c7e2f072fe9cc4d2b5af76f5c360c6c0
+      size: 1844
+    params:
+      params.yaml:
+        clean:
+          min_user_chars: 30
+          max_user_chars: 4000
+          min_assistant_chars: 2
+          near_dup:
+            enabled: true
+            shingle_words: 4
+            num_perm: 64
+            threshold: 0.85
+          pii:
+            enabled: true
+        paths.clean: data/clean.jsonl
+    outs:
+    - path: data/clean.jsonl
+      hash: md5
+      md5: 723d291ad8998e1dfc3a108c5118759e
+      size: 1876613
+    - path: metrics/clean.json
+      hash: md5
+      md5: d85b7fbb3077ece06362715c3fe273c0
+      size: 426
+  diversity:
+    cmd: python -m src.diversity
+    deps:
+    - path: data/clean.jsonl
+      hash: md5
+      md5: 723d291ad8998e1dfc3a108c5118759e
+      size: 1876613
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    - path: src/diversity.py
+      hash: md5
+      md5: 88c5db2cb584dbdbe18d27db0730d029
+      size: 6465
+    - path: src/schema.py
+      hash: md5
+      md5: ad834fcb5caa483d3d5d5bfabb433cc0
+      size: 3054
+    - path: src/stats.py
+      hash: md5
+      md5: a54925032eff4769647b5775d72dd423
+      size: 2222
+    - path: src/textnorm.py
+      hash: md5
+      md5: c7e2f072fe9cc4d2b5af76f5c360c6c0
+      size: 1844
+    params:
+      params.yaml:
+        diversity:
+          min_examples: 1000
+          min_system_prompts: 3
+          min_groups: 50
+          max_group_share: 0.1
+          min_answer_len_ratio: 1.6
+          max_same_length_share: 0.25
+          max_duplicate_answer_share: 0.3
+        paths.clean: data/clean.jsonl
+        split.group_key: topic
+    outs:
+    - path: metrics/diversity.json
+      hash: md5
+      md5: 3fb61f95d9112b5c1b36a65e7ba6ebc6
+      size: 627
+  split:
+    cmd: python -m src.split
+    deps:
+    - path: data/clean.jsonl
+      hash: md5
+      md5: 723d291ad8998e1dfc3a108c5118759e
+      size: 1876613
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    - path: src/contamination.py
+      hash: md5
+      md5: 9293919fc5964067833313514c6f9f2b
+      size: 2249
+    - path: src/dedup.py
+      hash: md5
+      md5: fde80d28430f1612c4cbb7f0fdcc1f4d
+      size: 2757
+    - path: src/schema.py
+      hash: md5
+      md5: ad834fcb5caa483d3d5d5bfabb433cc0
+      size: 3054
+    - path: src/split.py
+      hash: md5
+      md5: f670bb833e9742c707a7b57d5d18713c
+      size: 3322
+    - path: src/textnorm.py
+      hash: md5
+      md5: c7e2f072fe9cc4d2b5af76f5c360c6c0
+      size: 1844
+    params:
+      params.yaml:
+        contamination:
+          threshold: 0.85
+        paths.test: data/test.jsonl
+        paths.train: data/train.jsonl
+        paths.val: data/val.jsonl
+        split:
+          group_key: topic
+          ratios:
+            train: 0.8
+            val: 0.1
+            test: 0.1
+          seed: 42
+    outs:
+    - path: data/test.jsonl
+      hash: md5
+      md5: 4502a025cc83d3837a4c699ca110d433
+      size: 188312
+    - path: data/train.jsonl
+      hash: md5
+      md5: 987102db8cc6e8826fc06ceae242746c
+      size: 1500733
+    - path: data/val.jsonl
+      hash: md5
+      md5: 294c466a89fe7d5d3a4cf7579681b538
+      size: 187568
+    - path: metrics/split.json
+      hash: md5
+      md5: 97b3b66324d9b0b62e62227a408661ac
+      size: 494

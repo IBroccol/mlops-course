@@ -7,12 +7,12 @@
 потому что каждая смотрит на строки по отдельности, а вырожденность — свойство
 набора целиком.
 
-Гейт, а не отчёт: нарушен порог — стадия падает и печатает, какой именно и
-насколько. Пороги живут в params.yaml и меняются осознанно, с обоснованием
-в datasheet, а не «чтобы позеленело».
+При нарушении порога стадия завершается ошибкой и печатает фактическое значение.
+Пороги находятся в params.yaml, а их обоснование приведено в datasheet.
 """
 
 import json
+import sys
 import time
 from collections import Counter
 from pathlib import Path
@@ -62,8 +62,8 @@ def measure(path: str, group_key: str) -> dict:
 def violations(stats: dict, cfg: dict) -> list[str]:
     """Список нарушенных порогов. Пустой список — гейт открыт.
 
-    Каждая строка содержит и порог, и фактическое значение: сообщение об ошибке
-    должно объяснять, что чинить, а не только что сломалось.
+    Каждая строка содержит порог и фактическое значение, достаточные для
+    диагностики причины ошибки.
     """
     found: list[str] = []
 
@@ -113,28 +113,29 @@ def main() -> None:
     stats = measure(paths["clean"], params["split"]["group_key"])
     failed = violations(stats, cfg)
 
+    elapsed = round(time.perf_counter() - started, 2)
     metrics = {
         "version": params["collect"]["version"],
         **stats,
         "thresholds": dict(cfg),
         "violations": failed,
         "passed": not failed,
-        "seconds": round(time.perf_counter() - started, 2),
     }
     mpath = Path(paths["metrics_diversity"])
     mpath.parent.mkdir(parents=True, exist_ok=True)
     mpath.write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     if failed:
-        # TODO: гейт или отчёт? Стадия, которая сообщает о проблеме и продолжает,
-        # не мешает вырожденному набору доехать до обучения.
-        print("diversity: предупреждение — " + "; ".join(failed))
+        print("diversity: гейт закрыт", file=sys.stderr)
+        for message in failed:
+            print(f"  - {message}", file=sys.stderr)
+        raise DiversityError(f"нарушено порогов: {len(failed)}")
 
     print(
         f"diversity: {stats['examples']} строк, {stats['system_prompts']} системных промптов, "
         f"{stats['groups']} групп (крупнейшая {stats['largest_group_share']:.1%}), "
         f"разброс длин p90/p10 = {stats['answer_len']['ratio_p90_p10']}, "
-        f"{metrics['seconds']} с"
+        f"{elapsed} с"
     )
 
 

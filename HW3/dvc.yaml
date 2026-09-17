@@ -1,4 +1,4 @@
-# Пайплайн ДЗ 3: collect → clean → diversity → split.
+# Пайплайн подготовки данных: collect → clean → diversity → split.
 #
 # Два правила, из-за нарушения которых пайплайн «не пересчитывается»:
 #   deps — всё, от чего зависит результат: входные данные И код стадии;
@@ -11,16 +11,21 @@ stages:
   collect:
     cmd: python -m src.collect
     deps:
-      # TODO: добавить сюда путь к СВОЕМУ источнику данных.
-      # Без этого dvc не заметит, что источник изменился, и не пересчитает стадию.
+      - sources/data
       - src/collect.py
       - src/config.py
+    params:
+      - collect
     outs:
       - data/raw.jsonl
+    metrics:
+      - metrics/collect.json:
+          cache: false
 
   clean:
     cmd: python -m src.clean
     deps:
+      - data/raw.jsonl
       - src/clean.py
       - src/dedup.py
       - src/pii.py
@@ -71,6 +76,8 @@ stages:
       - paths.test
     outs:
       - data/train.jsonl
+      - data/val.jsonl
+      - data/test.jsonl
     metrics:
       - metrics/split.json:
           cache: false

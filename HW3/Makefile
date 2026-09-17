@@ -1,7 +1,10 @@
-.PHONY: install repro v1 v2 diff dag diversity contamination check clean
+.PHONY: install source repro v1 v2 diff dag diversity contamination check clean
 
 install:
 	uv sync
+
+source:
+	python3 scripts/fetch_wikidata.py
 
 repro:
 	uv run dvc repro
@@ -15,7 +18,7 @@ v2:
 	uv run dvc repro
 
 diff:
-	uv run dvc metrics diff
+	uv run dvc metrics diff HEAD~1
 
 dag:
 	uv run dvc dag

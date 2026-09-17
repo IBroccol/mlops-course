@@ -11,19 +11,22 @@ from src.schema import Example, dump, iter_examples
 from src.textnorm import normalize_group
 
 
-def row_split(count: int, ratios: dict[str, float], seed: int) -> list[str]:
-    """Раздать строкам метки сплита в заданных долях."""
-    order = list(range(count))
-    random.Random(seed).shuffle(order)
-    labels = [""] * count
-    start = 0
-    names = list(ratios)
-    for i, name in enumerate(names):
-        stop = count if i == len(names) - 1 else start + round(count * ratios[name])
-        for pos in order[start:stop]:
-            labels[pos] = name
-        start = stop
-    return labels
+def group_split(
+    examples: list[Example], ratios: dict[str, float], seed: int
+) -> dict[str, list[Example]]:
+    """Раздать целые группы сущностей, не разрывая их между сплитами."""
+    grouped: dict[str, list[Example]] = {}
+    for ex in examples:
+        grouped.setdefault(normalize_group(ex.topic), []).append(ex)
+    groups = list(grouped.items())
+    random.Random(seed).shuffle(groups)
+    groups.sort(key=lambda item: len(item[1]), reverse=True)
+    buckets: dict[str, list[Example]] = {name: [] for name in ratios}
+    targets = {name: len(examples) * ratio for name, ratio in ratios.items()}
+    for _, rows in groups:
+        label = max(ratios, key=lambda name: targets[name] - len(buckets[name]))
+        buckets[label].extend(rows)
+    return buckets
 
 
 def main() -> None:
@@ -41,10 +44,7 @@ def main() -> None:
         key = normalize_group(ex.topic)
         sizes[key] = sizes.get(key, 0) + 1
 
-    labels = row_split(len(examples), cfg["ratios"], cfg["seed"])
-    buckets: dict[str, list[Example]] = {name: [] for name in cfg["ratios"]}
-    for label, ex in zip(labels, examples):
-        buckets[label].append(ex)
+    buckets = group_split(examples, cfg["ratios"], cfg["seed"])
 
     for name, rows in buckets.items():
         out = Path(paths[name])
@@ -61,7 +61,10 @@ def main() -> None:
         num_perm=nd["num_perm"],
         threshold=params["contamination"]["threshold"],
     )
+    if any(rep[key] for key in ("id_overlap", "text_overlap", "group_overlap", "near_dup_pairs")):
+        raise RuntimeError(f"split создал контаминацию train/test: {rep}")
 
+    elapsed = round(time.perf_counter() - started, 2)
     metrics = {
         "version": params["collect"]["version"],
         "seed": cfg["seed"],
@@ -75,7 +78,6 @@ def main() -> None:
             name: round(len(rows) / len(examples), 4) for name, rows in buckets.items()
         },
         "contamination": rep,
-        "seconds": round(time.perf_counter() - started, 2),
     }
     mpath = Path(paths["metrics_split"])
     mpath.parent.mkdir(parents=True, exist_ok=True)
@@ -84,7 +86,7 @@ def main() -> None:
     print(
         "split: "
         + ", ".join(f"{name} {len(rows)}" for name, rows in buckets.items())
-        + f" (групп {len(sizes)}, {metrics['seconds']} с)"
+        + f" (групп {len(sizes)}, {elapsed} с)"
     )
 
 
