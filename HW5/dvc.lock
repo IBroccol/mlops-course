@@ -1,0 +1,270 @@
+schema: '2.0'
+stages:
+  train_all:
+    cmd: uv run python -m src.train --variant all_layers
+    deps:
+    - path: ../HW4/data/tokenized/train.pt
+      hash: md5
+      md5: 856f71f076c90bb24c0cc660569eda74
+      size: 7236065
+    - path: ../HW4/data/tokenized/val.pt
+      hash: md5
+      md5: 92bf3e1fadabdad2532383039e82b1c3
+      size: 908757
+    - path: src/config.py
+      hash: md5
+      md5: d1af94455f9641952ff6c34f46ac6060
+      size: 336
+    - path: src/data.py
+      hash: md5
+      md5: d78a3ccae087e8bcfdc3b3c945d66089
+      size: 1985
+    - path: src/runtime.py
+      hash: md5
+      md5: 37abe99ccac33647ca533cf2e74ddfda
+      size: 3142
+    - path: src/train.py
+      hash: md5
+      md5: 2f2d9b255ac26ff63b15c192c4d56205
+      size: 18011
+    - path: uv.lock
+      hash: md5
+      md5: d9eb194bec170c644058deb416360c75
+      size: 660003
+    params:
+      params.yaml:
+        data:
+          train: ../HW4/data/tokenized/train.pt
+          val: ../HW4/data/tokenized/val.pt
+        lora:
+          r: 8
+          alpha: 16
+          dropout: 0.05
+          target_modules:
+          - q_proj
+          - k_proj
+          - v_proj
+          - o_proj
+          - gate_proj
+          - up_proj
+          - down_proj
+        model:
+          name: Qwen/Qwen3-0.6B
+          device: auto
+          dtype: bfloat16
+          enable_thinking: false
+        paths.metrics: metrics
+        paths.models: models
+        train:
+          seed: 42
+          epochs: 1
+          batch_size: 4
+          grad_accum: 8
+          lr: 0.0002
+          warmup_ratio: 0.03
+          weight_decay: 0.0
+          max_grad_norm: 1.0
+          eval_every: 10
+          eval_batch_size: 8
+          gradient_checkpointing: true
+          max_steps:
+          checkpoint_every: 10
+        variants:
+        - name: all_layers
+          freeze_first: 0
+        - name: freeze14
+          freeze_first: 14
+    outs:
+    - path: metrics/train_all_layers.json
+      hash: md5
+      md5: d87021f37c31186a1d4171b623b88aea
+      size: 4462
+    - path: models/adapter_all_layers
+      hash: md5
+      md5: 35b40a786c4b46eb9d5cbf7fe830bc78.dir
+      size: 31670551
+      nfiles: 6
+  train_freeze:
+    cmd: uv run python -m src.train --variant freeze14
+    deps:
+    - path: ../HW4/data/tokenized/train.pt
+      hash: md5
+      md5: 856f71f076c90bb24c0cc660569eda74
+      size: 7236065
+    - path: ../HW4/data/tokenized/val.pt
+      hash: md5
+      md5: 92bf3e1fadabdad2532383039e82b1c3
+      size: 908757
+    - path: src/config.py
+      hash: md5
+      md5: d1af94455f9641952ff6c34f46ac6060
+      size: 336
+    - path: src/data.py
+      hash: md5
+      md5: d78a3ccae087e8bcfdc3b3c945d66089
+      size: 1985
+    - path: src/runtime.py
+      hash: md5
+      md5: 37abe99ccac33647ca533cf2e74ddfda
+      size: 3142
+    - path: src/train.py
+      hash: md5
+      md5: 2f2d9b255ac26ff63b15c192c4d56205
+      size: 18011
+    - path: uv.lock
+      hash: md5
+      md5: d9eb194bec170c644058deb416360c75
+      size: 660003
+    params:
+      params.yaml:
+        data:
+          train: ../HW4/data/tokenized/train.pt
+          val: ../HW4/data/tokenized/val.pt
+        lora:
+          r: 8
+          alpha: 16
+          dropout: 0.05
+          target_modules:
+          - q_proj
+          - k_proj
+          - v_proj
+          - o_proj
+          - gate_proj
+          - up_proj
+          - down_proj
+        model:
+          name: Qwen/Qwen3-0.6B
+          device: auto
+          dtype: bfloat16
+          enable_thinking: false
+        paths.metrics: metrics
+        paths.models: models
+        train:
+          seed: 42
+          epochs: 1
+          batch_size: 4
+          grad_accum: 8
+          lr: 0.0002
+          warmup_ratio: 0.03
+          weight_decay: 0.0
+          max_grad_norm: 1.0
+          eval_every: 10
+          eval_batch_size: 8
+          gradient_checkpointing: true
+          max_steps:
+          checkpoint_every: 10
+        variants:
+        - name: all_layers
+          freeze_first: 0
+        - name: freeze14
+          freeze_first: 14
+    outs:
+    - path: metrics/train_freeze14.json
+      hash: md5
+      md5: eeb33228f388b0000c985e602a2c0e97
+      size: 4452
+    - path: models/adapter_freeze14
+      hash: md5
+      md5: 2a67a6841f4f534145ddcaa36e359382.dir
+      size: 21552089
+      nfiles: 6
+  compare:
+    cmd: uv run python -m src.compare --variant all_layers
+    deps:
+    - path: models/adapter_all_layers
+      hash: md5
+      md5: 35b40a786c4b46eb9d5cbf7fe830bc78.dir
+      size: 31670551
+      nfiles: 6
+    - path: src/compare.py
+      hash: md5
+      md5: c744a1c3653e19c1f8ff9a127563281b
+      size: 4313
+    - path: src/config.py
+      hash: md5
+      md5: d1af94455f9641952ff6c34f46ac6060
+      size: 336
+    - path: src/runtime.py
+      hash: md5
+      md5: 37abe99ccac33647ca533cf2e74ddfda
+      size: 3142
+    - path: uv.lock
+      hash: md5
+      md5: d9eb194bec170c644058deb416360c75
+      size: 660003
+    params:
+      params.yaml:
+        compare:
+          max_new_tokens: 160
+          prompts:
+          - "Карточка источника Wikidata (Q203299):\nобъект — Эль-Файюм; тип — город;
+            страна — Египет; административный регион — Эль-Файюм; население — 519
+            047; широта — 29.3; долгота — 30.83333.\n\nЗадание: В какой стране и каком
+            административном регионе находится объект?"
+          - "Карточка источника Wikidata (Q243322):\nобъект — Гуджранвала; тип — город;
+            страна — Пакистан; административный регион — Гуджранвала; население —
+            2 027 001; широта — 32.15; долгота — 74.18333.\n\nЗадание: Какое население
+            указано для объекта? Не представляй число как текущее."
+          - "Карточка источника Wikidata (Q11194):\nобъект — Сараево; тип — город;
+            страна — Босния и Герцеговина; административный регион — Сараевский кантон;
+            население — 275 524; широта — 43.85639; долгота — 18.41306.\n\nЗадание:
+            Запиши координаты объекта с обозначением полушарий."
+          - "Карточка источника Wikidata (Q1019424):\nобъект — Рюфиск; тип — город;
+            страна — Сенегал; административный регион — не указан; население — 295
+            459; широта — 14.71403; долгота — -17.27231.\n\nЗадание: Составь краткую
+            географическую справку только по данным карточки."
+          - "Карточка источника Wikidata (Q1014):\nобъект — Либерия; тип — страна;
+            столица — Монровия; континент — Африка; население — 5 214 030; площадь
+            — 111 369.00 км².\n\nЗадание: На каком континенте находится страна и как
+            называется её столица?"
+          system: Ты отвечаешь на вопросы о географии по предоставленной
+            карточке Wikidata. Не добавляй фактов, которых нет в карточке, и
+            указывай ограничения снимка данных.
+        model:
+          name: Qwen/Qwen3-0.6B
+          device: auto
+          dtype: bfloat16
+          enable_thinking: false
+        paths:
+          models: models
+          metrics: metrics
+          curves: docs/curves.png
+          compare: docs/compare.md
+        train.seed: 42
+    outs:
+    - path: docs/compare.md
+      hash: md5
+      md5: 55644b46787c0019f714cb70c79146b8
+      size: 5740
+    - path: metrics/compare_all_layers.json
+      hash: md5
+      md5: ccb8318f18f9fad6802aa7e071144766
+      size: 2195
+  plot:
+    cmd: uv run python -m src.plot
+    deps:
+    - path: metrics/train_all_layers.json
+      hash: md5
+      md5: d87021f37c31186a1d4171b623b88aea
+      size: 4462
+    - path: metrics/train_freeze14.json
+      hash: md5
+      md5: eeb33228f388b0000c985e602a2c0e97
+      size: 4452
+    - path: src/config.py
+      hash: md5
+      md5: d1af94455f9641952ff6c34f46ac6060
+      size: 336
+    - path: src/plot.py
+      hash: md5
+      md5: 1766dc7e2a22898bd0ec38dde7256d2b
+      size: 1576
+    params:
+      params.yaml:
+        paths.curves: docs/curves.png
+        paths.metrics: metrics
+    outs:
+    - path: docs/curves.png
+      hash: md5
+      md5: 582635c543d047b97e37ab1d81505004
+      size: 69715
