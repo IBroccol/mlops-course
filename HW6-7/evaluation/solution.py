@@ -1,7 +1,6 @@
 """Строгая оценка JSON-меток и допуск без регрессий. Не требует MLflow/torch."""
 import json
 import math
-from collections import Counter
 
 
 def _unique(items):
@@ -98,7 +97,10 @@ def _validate_score(report, minimum, context):
     if len(items) < minimum:
         raise ValueError(f'{context}: нужно минимум {minimum} примеров')
     for item in items:
-        if (type(item.get('valid')) is not bool or type(item.get('correct')) is not bool
+        if (not isinstance(item.get('raw'), str) or 'parsed' not in item
+                or (item.get('valid') is True and not isinstance(item['parsed'], str))
+                or (item.get('valid') is False and item['parsed'] is not None)
+                or type(item.get('valid')) is not bool or type(item.get('correct')) is not bool
                 or (item['correct'] and not item['valid']) or 'error' not in item
                 or (item['error'] is not None and not isinstance(item['error'], str))
                 or (item['error'] is not None and item['valid'])
@@ -122,6 +124,22 @@ def _compatible(a, b, context):
         raise ValueError(f'{context}: разные id/состав срезов')
 
 
+def _validate_model(model):
+    kind = model.get('kind')
+    if kind == 'fixture':
+        return  # Учебные unit-фикстуры; production CLI сверяет точный model spec.
+    if kind not in ('base', 'adapter') or not isinstance(model.get('name'), str) or not model['name']:
+        raise ValueError('Не указана конкретная модель')
+    if kind == 'base':
+        revision = model.get('revision')
+        if not isinstance(revision, str) or len(revision) != 40 or any(c not in '0123456789abcdef' for c in revision):
+            raise ValueError('Нет точной ревизии baseline')
+    elif (not isinstance(model.get('version'), str) or not model['version'].isdigit()
+          or not isinstance(model.get('run_id'), str) or not model['run_id']
+          or model.get('uri') != f'models:/{model["name"]}/{model["version"]}'):
+        raise ValueError('Нет точной версии/run/URI адаптера')
+
+
 def quality_gate(baseline, candidate, critical_slices):
     """Отказ на неполных/несовместимых измерениях и на любой заданной регрессии."""
     try:
@@ -129,6 +147,7 @@ def quality_gate(baseline, candidate, critical_slices):
             if (not isinstance(report, dict) or report.get('status') != 'complete'
                     or not isinstance(report.get('model'), dict) or not report['model']):
                 raise ValueError('Неполная оценка или отсутствует модель')
+            _validate_model(report['model'])
         for key in ('protocol_sha256', 'golden_sha256', 'baseline_spec_sha256'):
             if (not isinstance(baseline.get(key), str) or not baseline[key]
                     or baseline[key] != candidate.get(key)):

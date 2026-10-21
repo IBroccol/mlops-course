@@ -1,0 +1,19 @@
+{
+  "exact_or_group_intersections": 0,
+  "n_train_index": 2872,
+  "n_golden": 60,
+  "n_behavioral": 3,
+  "labels": {
+    "A": 20,
+    "B": 20,
+    "C": 20
+  },
+  "slices": {
+    "country_lookup": 20,
+    "city": 40,
+    "hemisphere": 20,
+    "capital_lookup": 20,
+    "country": 20
+  },
+  "source_records_checked": 60
+}

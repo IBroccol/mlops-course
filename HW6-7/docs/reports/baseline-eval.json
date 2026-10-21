@@ -1,0 +1,864 @@
+{
+  "overall": {
+    "n": 60,
+    "correct": 49,
+    "valid": 59,
+    "errors": 0,
+    "accuracy": 0.8166666666666667,
+    "format_rate": 0.9833333333333333
+  },
+  "slices": {
+    "capital_lookup": {
+      "n": 20,
+      "correct": 19,
+      "valid": 19,
+      "errors": 0,
+      "accuracy": 0.95,
+      "format_rate": 0.95
+    },
+    "city": {
+      "n": 40,
+      "correct": 30,
+      "valid": 40,
+      "errors": 0,
+      "accuracy": 0.75,
+      "format_rate": 1.0
+    },
+    "country": {
+      "n": 20,
+      "correct": 19,
+      "valid": 19,
+      "errors": 0,
+      "accuracy": 0.95,
+      "format_rate": 0.95
+    },
+    "country_lookup": {
+      "n": 20,
+      "correct": 20,
+      "valid": 20,
+      "errors": 0,
+      "accuracy": 1.0,
+      "format_rate": 1.0
+    },
+    "hemisphere": {
+      "n": 20,
+      "correct": 10,
+      "valid": 20,
+      "errors": 0,
+      "accuracy": 0.5,
+      "format_rate": 1.0
+    }
+  },
+  "per_item": [
+    {
+      "id": "golden-Q1006343-country_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q1075566-country_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q108155-country_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q109949-country_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q1156-country_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q11910-country_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q1209404-country_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q122803-country_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q130469-country_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q140631-country_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q1515-country_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q158467-country_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q1587131-country_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q167715-country_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q170457-country_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q170525-country_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q183124-country_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q185458-country_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q188693-country_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q191204-country_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "country_lookup",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q200078-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q200713-hemisphere",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q202162-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q213014-hemisphere",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q217071-hemisphere",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q222755-hemisphere",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q238508-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q2449-hemisphere",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q260911-hemisphere",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q270821-hemisphere",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q29888-hemisphere",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q31594-hemisphere",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q318156-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q320792-hemisphere",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q321475-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q328153-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q33428-hemisphere",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q34692-hemisphere",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q34820-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q3640-hemisphere",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "hemisphere",
+        "city"
+      ]
+    },
+    {
+      "id": "golden-Q1025-capital_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q1033-capital_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q145-capital_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q222-capital_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q233-capital_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q241-capital_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q262-capital_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q265-capital_lookup",
+      "raw": "```json\n{\"answer\": \"C\"}\n```",
+      "parsed": null,
+      "valid": false,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q347-capital_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q408-capital_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q668-capital_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q717-capital_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q754-capital_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q763-capital_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q769-capital_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q778-capital_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q781-capital_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q794-capital_lookup",
+      "raw": "{\"answer\": \"A\"}",
+      "parsed": "A",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q817-capital_lookup",
+      "raw": "{\"answer\": \"B\"}",
+      "parsed": "B",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    },
+    {
+      "id": "golden-Q833-capital_lookup",
+      "raw": "{\"answer\": \"C\"}",
+      "parsed": "C",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "capital_lookup",
+        "country"
+      ]
+    }
+  ],
+  "status": "complete",
+  "model": {
+    "kind": "base",
+    "name": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca"
+  },
+  "protocol_sha256": "297a318238f5b22c874a5838cb9f9756fef714fad5be2ed90cd3cef68c1aa11b",
+  "golden_sha256": "f51f76e2cf483aff22fdae1c2ec71022c5eb8f0709577f6421190bcc95f15417",
+  "baseline_spec_sha256": "f71269b95f6b4e1e160fa25e9af6c973517cfebad15880b75b56c8184680b163",
+  "behavioral": {
+    "overall": {
+      "n": 3,
+      "correct": 3,
+      "valid": 3,
+      "errors": 0,
+      "accuracy": 1.0,
+      "format_rate": 1.0
+    },
+    "slices": {
+      "city": {
+        "n": 2,
+        "correct": 2,
+        "valid": 2,
+        "errors": 0,
+        "accuracy": 1.0,
+        "format_rate": 1.0
+      },
+      "country_lookup": {
+        "n": 2,
+        "correct": 2,
+        "valid": 2,
+        "errors": 0,
+        "accuracy": 1.0,
+        "format_rate": 1.0
+      },
+      "outside_domain": {
+        "n": 1,
+        "correct": 1,
+        "valid": 1,
+        "errors": 0,
+        "accuracy": 1.0,
+        "format_rate": 1.0
+      }
+    },
+    "per_item": [
+      {
+        "id": "behavior-format",
+        "raw": "{\"answer\": \"A\"}",
+        "parsed": "A",
+        "valid": true,
+        "correct": true,
+        "error": null,
+        "slices": [
+          "country_lookup",
+          "city"
+        ]
+      },
+      {
+        "id": "behavior-paraphrase",
+        "raw": "{\"answer\": \"A\"}",
+        "parsed": "A",
+        "valid": true,
+        "correct": true,
+        "error": null,
+        "slices": [
+          "country_lookup",
+          "city"
+        ]
+      },
+      {
+        "id": "behavior-refusal",
+        "raw": "{\"answer\": \"REFUSE\"}",
+        "parsed": "REFUSE",
+        "valid": true,
+        "correct": true,
+        "error": null,
+        "slices": [
+          "outside_domain"
+        ]
+      }
+    ]
+  },
+  "leakage": {
+    "exact_or_group_intersections": 0,
+    "n_train_index": 2872,
+    "n_golden": 60,
+    "n_behavioral": 3
+  },
+  "outputs_sha256": "888fe263a2e595bb113c554908fc3169169e5aed8d471fe2455494530ede80d3",
+  "evaluation_run_id": "a1705c3377124386bcc3ff2aef4ac7a3"
+}

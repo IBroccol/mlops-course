@@ -1,0 +1,1 @@
+PASS: полностью согласованные отчёты с испорченными raw отклонены: accuracy: 0.0000 < 0.8167; format_rate: 0.0000 < 0.9833; Критический срез country_lookup: регрессия accuracy; Критический срез hemisphere: регрессия accuracy; Критический срез capital_lookup: регрессия accuracy

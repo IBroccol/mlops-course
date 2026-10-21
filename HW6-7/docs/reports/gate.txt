@@ -1,0 +1,3 @@
+uv run python -m evaluation.cli gate
+Отказ: accuracy: 0.7667 < 0.8167; Критический срез hemisphere: регрессия accuracy
+make: *** [eval] Error 1

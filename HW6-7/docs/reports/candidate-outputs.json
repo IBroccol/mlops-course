@@ -1,0 +1,380 @@
+[
+  {
+    "id": "golden-Q1006343-country_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3442047499702312
+  },
+  {
+    "id": "golden-Q1075566-country_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3214590420247987
+  },
+  {
+    "id": "golden-Q108155-country_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.3247842499986291
+  },
+  {
+    "id": "golden-Q109949-country_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.32621879095677286
+  },
+  {
+    "id": "golden-Q1156-country_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3254812089726329
+  },
+  {
+    "id": "golden-Q11910-country_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.328084041015245
+  },
+  {
+    "id": "golden-Q1209404-country_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3257129169651307
+  },
+  {
+    "id": "golden-Q122803-country_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3270265000173822
+  },
+  {
+    "id": "golden-Q130469-country_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.32398141600424424
+  },
+  {
+    "id": "golden-Q140631-country_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.338362334005069
+  },
+  {
+    "id": "golden-Q1515-country_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.33059079200029373
+  },
+  {
+    "id": "golden-Q158467-country_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.32780900003854185
+  },
+  {
+    "id": "golden-Q1587131-country_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.33197616698453203
+  },
+  {
+    "id": "golden-Q167715-country_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3307510000304319
+  },
+  {
+    "id": "golden-Q170457-country_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.32380299997748807
+  },
+  {
+    "id": "golden-Q170525-country_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.32635470799868926
+  },
+  {
+    "id": "golden-Q183124-country_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.32661475002532825
+  },
+  {
+    "id": "golden-Q185458-country_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.32542787498096004
+  },
+  {
+    "id": "golden-Q188693-country_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3285637079970911
+  },
+  {
+    "id": "golden-Q191204-country_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.32579295797040686
+  },
+  {
+    "id": "golden-Q200078-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.34537891700165346
+  },
+  {
+    "id": "golden-Q200713-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3443461249698885
+  },
+  {
+    "id": "golden-Q202162-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.34506333398167044
+  },
+  {
+    "id": "golden-Q213014-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3424899590318091
+  },
+  {
+    "id": "golden-Q217071-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.34351600002264604
+  },
+  {
+    "id": "golden-Q222755-hemisphere",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.34227691701380536
+  },
+  {
+    "id": "golden-Q238508-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.3421907909796573
+  },
+  {
+    "id": "golden-Q2449-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3408340840251185
+  },
+  {
+    "id": "golden-Q260911-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3415776250185445
+  },
+  {
+    "id": "golden-Q270821-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.33928445796482265
+  },
+  {
+    "id": "golden-Q29888-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.3417194169596769
+  },
+  {
+    "id": "golden-Q31594-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.34279025002615526
+  },
+  {
+    "id": "golden-Q318156-hemisphere",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3412365830154158
+  },
+  {
+    "id": "golden-Q320792-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.351166375039611
+  },
+  {
+    "id": "golden-Q321475-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.3390813749865629
+  },
+  {
+    "id": "golden-Q328153-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.33729545900132507
+  },
+  {
+    "id": "golden-Q33428-hemisphere",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3377354579861276
+  },
+  {
+    "id": "golden-Q34692-hemisphere",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.33439212501980364
+  },
+  {
+    "id": "golden-Q34820-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.33735287497984245
+  },
+  {
+    "id": "golden-Q3640-hemisphere",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.3361982079804875
+  },
+  {
+    "id": "golden-Q1025-capital_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3295355419977568
+  },
+  {
+    "id": "golden-Q1033-capital_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.32601345801958814
+  },
+  {
+    "id": "golden-Q145-capital_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3293800419778563
+  },
+  {
+    "id": "golden-Q222-capital_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3266589169506915
+  },
+  {
+    "id": "golden-Q233-capital_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.3269055419950746
+  },
+  {
+    "id": "golden-Q241-capital_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3222652500262484
+  },
+  {
+    "id": "golden-Q262-capital_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3252225409960374
+  },
+  {
+    "id": "golden-Q265-capital_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.33538841595873237
+  },
+  {
+    "id": "golden-Q347-capital_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3464486669981852
+  },
+  {
+    "id": "golden-Q408-capital_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3360695000155829
+  },
+  {
+    "id": "golden-Q668-capital_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.3357659999746829
+  },
+  {
+    "id": "golden-Q717-capital_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.33874862495576963
+  },
+  {
+    "id": "golden-Q754-capital_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3444357910193503
+  },
+  {
+    "id": "golden-Q763-capital_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.33162466704379767
+  },
+  {
+    "id": "golden-Q769-capital_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.34737379202852026
+  },
+  {
+    "id": "golden-Q778-capital_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3442676670383662
+  },
+  {
+    "id": "golden-Q781-capital_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.339322334039025
+  },
+  {
+    "id": "golden-Q794-capital_lookup",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3370515420101583
+  },
+  {
+    "id": "golden-Q817-capital_lookup",
+    "raw": "{\"answer\": \"B\"}",
+    "error": null,
+    "latency_seconds": 0.3322829999960959
+  },
+  {
+    "id": "golden-Q833-capital_lookup",
+    "raw": "{\"answer\": \"C\"}",
+    "error": null,
+    "latency_seconds": 0.32863762497436255
+  },
+  {
+    "id": "behavior-format",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.3287454160163179
+  },
+  {
+    "id": "behavior-paraphrase",
+    "raw": "{\"answer\": \"A\"}",
+    "error": null,
+    "latency_seconds": 0.33882279199315235
+  },
+  {
+    "id": "behavior-refusal",
+    "raw": "{\"answer\": \"REFUSE\"}",
+    "error": null,
+    "latency_seconds": 0.34309395804302767
+  }
+]

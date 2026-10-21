@@ -1,0 +1,13 @@
+{
+  "improved": [
+    "golden-Q260911-hemisphere",
+    "golden-Q265-capital_lookup"
+  ],
+  "regressed": [
+    "golden-Q2449-hemisphere",
+    "golden-Q29888-hemisphere",
+    "golden-Q318156-hemisphere",
+    "golden-Q320792-hemisphere",
+    "golden-Q33428-hemisphere"
+  ]
+}

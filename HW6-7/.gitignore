@@ -7,3 +7,5 @@ mlruns/
 mlartifacts/
 *.log
 .DS_Store
+
+/submission/

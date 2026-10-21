@@ -1,0 +1,14 @@
+{
+  "rejected": true,
+  "reason": "accuracy: 0.0000 < 0.8167; format_rate: 0.0000 < 0.9833; Критический срез country_lookup: регрессия accuracy; Критический срез hemisphere: регрессия accuracy; Критический срез capital_lookup: регрессия accuracy",
+  "overall": {
+    "n": 60,
+    "correct": 0,
+    "valid": 0,
+    "errors": 0,
+    "accuracy": 0.0,
+    "format_rate": 0.0
+  },
+  "behavioral_unchanged": true,
+  "note": "Только копия raw golden; counts пересчитаны scorer, weights/alias не менялись"
+}
