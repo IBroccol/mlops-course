@@ -1,0 +1,61 @@
+schema: '2.0'
+stages:
+  prepare_eval:
+    cmd: uv run python -m scripts.prepare_eval
+    deps:
+    - path: ../HW3/data/test.jsonl
+      hash: md5
+      md5: 2bf610d185469daeae0d5752968575d8
+      size: 420407
+    - path: ../HW3/data/train.jsonl
+      hash: md5
+      md5: 70ef0588ab8931061e821e1318eb1a08
+      size: 3353344
+    - path: ../HW3/sources/data
+      hash: md5
+      md5: 817ce0992e57c8e22c33260eadfa8872.dir
+      size: 223678
+      nfiles: 3
+    - path: ../HW4/data/tokenized/train.pt
+      hash: md5
+      md5: 856f71f076c90bb24c0cc660569eda74
+      size: 7236065
+    - path: ../HW4/data/tokenized/val.pt
+      hash: md5
+      md5: 92bf3e1fadabdad2532383039e82b1c3
+      size: 908757
+    - path: ../HW4/data/train.jsonl
+      hash: md5
+      md5: 70ef0588ab8931061e821e1318eb1a08
+      size: 3353344
+    - path: ../HW4/params.yaml
+      hash: md5
+      md5: 60f8f7e6e1748c1b02e421b50542cd10
+      size: 1914
+    - path: ../HW4/src
+      hash: md5
+      md5: 70b1a634c34cbe24fd5545af845e93c9.dir
+      size: 56974
+      nfiles: 12
+    - path: evaluation/contract.py
+      hash: md5
+      md5: 6d83ad5e8bb53684534075d606f8e519
+      size: 3357
+    - path: params.yaml
+      hash: md5
+      md5: 25f455c7a32707bca70e25ba21eb7687
+      size: 1867
+    - path: scripts/prepare_eval.py
+      hash: md5
+      md5: 9f6de20272e3a2cb3f18701c7900507a
+      size: 8862
+    - path: uv.lock
+      hash: md5
+      md5: 1757c815d0d84c72b5090127b7e197f5
+      size: 403981
+    outs:
+    - path: data/eval
+      hash: md5
+      md5: f5dcbaecd20ac02bc85988568c62042a.dir
+      size: 1533491
+      nfiles: 6

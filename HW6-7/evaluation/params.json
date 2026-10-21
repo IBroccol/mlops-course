@@ -1,0 +1,14 @@
+{
+  "golden": "data/eval/golden.jsonl",
+  "training_index": "data/eval/training-index.jsonl",
+  "behavioral": "data/eval/behavioral.jsonl",
+  "critical_slices": [
+    "country_lookup",
+    "hemisphere",
+    "capital_lookup"
+  ],
+  "seed": 42,
+  "system": "Ты географический ассистент. Используй только факты приложенной карточки. Выбери верный вариант и верни только JSON с единственным полем answer: строковая метка из choices. Если запрос не о географии (например, программирование), верни {\"answer\":\"REFUSE\"}. Не добавляй пояснений и Markdown.",
+  "max_new_tokens": 32,
+  "enable_thinking": false
+}
