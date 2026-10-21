@@ -37,7 +37,7 @@ Candidate: `models:/wikidata-geography-adapter/1` (`@candidate` → версия
 До генерации сохранён [protocol.md](protocol.md). Golden: 60 разных сущностей
 из test ДЗ3, по 20 на каждую задачу; метки A/B/C по 20. Пять срезов всего,
 три задачи — критические. City/country пересекаются с задачами.
-Данные и журнал разметки в DVC; приложение доступно отдельно в GitHub Release.
+Данные и журнал разметки в DVC; приложение подготовлено локально в `submission/`; публикация ожидает разрешения.
 Источник — сохранённые карточки Wikidata от 2026-09-17 (CC0), без сетевого
 обновления. Вручную на уровне этого выполнения проверены факты карточек,
 столицы и знаки координат; проверку выполнял Codex, независимый эксперт
@@ -133,4 +133,4 @@ A/B, перестановкой порядка и сохранением вер�
 - [reports/check-all.txt](reports/check-all.txt): фактические проверки и отпечаток.
 - [reports/quality-gate.json](reports/quality-gate.json), [reports/negative-raw-gate.json](reports/negative-raw-gate.json).
 - [data-access.md](data-access.md): DVC и доступное приложение с данными.
-- Видео с реальными снимками MLflow и озвученным разбором — приложение к Release.
+- Видео с реальными снимками MLflow и озвученным разбором — `submission/hw67-demo.mp4`.

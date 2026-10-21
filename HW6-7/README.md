@@ -15,7 +15,8 @@ behavioral 3/3 у обеих версий. Порог после результ�
 - [Протокол до оценки](docs/protocol.md), [данные и доступ](docs/data-access.md).
 - [9/9 + 24 теста, полный фактический лог](docs/reports/check-all.txt).
 - [Все отчёты, raw, срезы и отказ](docs/reports).
-- [Приложения с данными, отчётами и видео](https://github.com/IBroccol/mlops-course/releases/tag/hw6-7-submission).
+- Приложения с данными, отчётами и видео: локальный каталог `submission/`.
+  Публикация приложений в публичном Release ожидает разрешения владельца.
 
 ## Быстрая проверка без модели
 
@@ -23,7 +24,7 @@ behavioral 3/3 у обеих версий. Порог после результ�
 cd HW6-7
 uv sync --frozen
 make check-eval
-# После скачивания приложения с данными из Release:
+# После скачивания приложения с данными:
 tar -xzf hw67-evaluation-data.tar.gz
 uv run python -m scripts.verify_eval_data
 ```
@@ -77,7 +78,7 @@ Postgres хранит метаданные, `artifacts` volume — пакеты/
 
 `dvc.lock` фиксирует 60 golden/3 behavioral/2 872 train-index и их источник.
 `uv run dvc pull` работает при доступности локального remote; для другого
-компьютера предусмотрено приложение к Release. `uv run dvc repro` требует
+компьютера предусмотрено локальное приложение. `uv run dvc repro` требует
 исходных файлов ДЗ3–4 и повторно сверяет все input_ids, masks и labels с
 encoder ДЗ4. Не запускайте новое приготовление/обучение для просмотра уже
 сохранённых результатов. Обновление данных меняет протокол и требует новой

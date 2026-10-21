@@ -5,12 +5,16 @@
 репозиторием, а не публичный облачный сервис. Путь переносим относительно
 `.dvc/config`; удалённому проверяющему он сам по себе недоступен.
 
-К GitHub Release этой работы приложен `hw67-evaluation-data.tar.gz`:
+Локально подготовлен `submission/hw67-evaluation-data.tar.gz`:
 `golden.jsonl`, `behavioral.jsonl`, полный `training-index.jsonl`,
 `source-records.jsonl`, `annotation-review.tsv`, `provenance.json`.
 В архиве нет весов, тензоров обучения, volumes и окружений.
 
-После скачивания архива из Release в каталог `HW6-7`:
+Публичный GitHub Release пока не создан: публикация приложений требует
+отдельного разрешения владельца. Для передачи проверяющему готов локальный
+архив; его контрольная сумма сохранена в `submission/SHA256SUMS`.
+
+После получения архива поместите его в каталог `HW6-7`:
 
 ```bash
 mkdir -p data/eval
