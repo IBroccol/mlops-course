@@ -1,0 +1,18 @@
+stages:
+  prepare_eval:
+    cmd: uv run python -m scripts.prepare_eval
+    deps:
+      - scripts/prepare_eval.py
+      - evaluation/contract.py
+      - params.yaml
+      - uv.lock
+      - ../HW3/data/train.jsonl
+      - ../HW3/data/test.jsonl
+      - ../HW3/sources/data
+      - ../HW4/data/train.jsonl
+      - ../HW4/data/tokenized/train.pt
+      - ../HW4/data/tokenized/val.pt
+      - ../HW4/params.yaml
+      - ../HW4/src
+    outs:
+      - data/eval

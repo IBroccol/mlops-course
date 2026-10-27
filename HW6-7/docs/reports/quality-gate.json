@@ -1,0 +1,4 @@
+{
+  "passed": false,
+  "reason": "accuracy: 0.7667 < 0.8167; Критический срез hemisphere: регрессия accuracy"
+}

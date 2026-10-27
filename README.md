@@ -8,6 +8,7 @@ HW2/   — анатомия модели, память, LoRA
 HW3/   — географический датасет Wikidata, качество, split, DVC
 HW4/   — chat template, masking, токенизация и packing
 HW5/   — LoRA: all_layers / freeze14, валидация, переносимость адаптера
+HW6-7/ — MLflow: 6 экспериментов, реестр, golden set и quality gate
 ```
 
 ```bash
@@ -17,3 +18,5 @@ cd HW3 && uv sync && make repro && make check
 cd HW4 && uv sync && make tokenize && make check
 cd HW5 && uv sync && make train && make compare && make check
 ```
+
+ДЗ6+7: единый маршрут и сохранённые результаты — [HW6-7/README.md](HW6-7/README.md).

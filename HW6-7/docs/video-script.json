@@ -1,0 +1,114 @@
+{
+  "format": "silent dark screen recording",
+  "recorded_at": "2026-10-27",
+  "duration_seconds": 318.626,
+  "chapters": [
+    {
+      "title": "Вступление",
+      "start_seconds": 0.0,
+      "duration_seconds": 12.0
+    },
+    {
+      "title": "Четыре исправления",
+      "start_seconds": 12.0,
+      "duration_seconds": 15.0
+    },
+    {
+      "title": "Модель, данные и бюджет",
+      "start_seconds": 27.0,
+      "duration_seconds": 18.0
+    },
+    {
+      "title": "Отдельный run на кандидата",
+      "start_seconds": 45.0,
+      "duration_seconds": 16.0
+    },
+    {
+      "title": "Постоянный volume артефактов",
+      "start_seconds": 61.0,
+      "duration_seconds": 12.0
+    },
+    {
+      "title": "Loss gate до регистрации",
+      "start_seconds": 73.0,
+      "duration_seconds": 13.0
+    },
+    {
+      "title": "Таблица шести конфигураций",
+      "start_seconds": 86.0,
+      "duration_seconds": 15.218
+    },
+    {
+      "title": "Шесть runs в MLflow",
+      "start_seconds": 101.218,
+      "duration_seconds": 10.0
+    },
+    {
+      "title": "Candidate в реестре",
+      "start_seconds": 111.218,
+      "duration_seconds": 12.0
+    },
+    {
+      "title": "Протокол golden set",
+      "start_seconds": 123.218,
+      "duration_seconds": 15.264
+    },
+    {
+      "title": "Golden-примеры в VS Code",
+      "start_seconds": 138.482,
+      "duration_seconds": 15.432
+    },
+    {
+      "title": "Строгий scorer",
+      "start_seconds": 153.914,
+      "duration_seconds": 13.0
+    },
+    {
+      "title": "Качество по срезам",
+      "start_seconds": 166.914,
+      "duration_seconds": 18.112
+    },
+    {
+      "title": "Проверки и защита выпуска",
+      "start_seconds": 185.026,
+      "duration_seconds": 12.09
+    },
+    {
+      "title": "Отказ quality gate и отрицательная проверка",
+      "start_seconds": 197.116,
+      "duration_seconds": 30.251
+    },
+    {
+      "title": "Сохранность после пересоздания контейнера",
+      "start_seconds": 227.367,
+      "duration_seconds": 26.023
+    },
+    {
+      "title": "Полная приёмка и отпечаток tests",
+      "start_seconds": 253.39,
+      "duration_seconds": 45.058
+    },
+    {
+      "title": "Решение о выпуске",
+      "start_seconds": 298.448,
+      "duration_seconds": 20.178
+    }
+  ],
+  "console_commands": [
+    "make eval",
+    "uv run python -m scripts.negative_raw",
+    "make check-storage",
+    "cat metrics/storage-check.json",
+    "HF_HUB_OFFLINE=1 make check-all"
+  ],
+  "sources": [
+    "docs/presentation/hw67-defense.pptx",
+    "params.yaml",
+    "src/sweep.py",
+    "compose.yaml",
+    "src/promote.py",
+    "data/eval/golden.jsonl",
+    "evaluation/solution.py"
+  ],
+  "note": "Реальные редактор, консоль и MLflow. Длинные паузы между разделами сокращены. Звуковой дорожки нет."
+}

@@ -1,0 +1,7 @@
+{
+  "kind": "adapter",
+  "name": "wikidata-geography-adapter",
+  "version": "1",
+  "run_id": "f27ff086cbfa47a7aa515f076fef28a8",
+  "uri": "models:/wikidata-geography-adapter/1"
+}

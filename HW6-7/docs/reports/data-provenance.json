@@ -1,0 +1,26 @@
+{
+  "exact_or_group_intersections": 0,
+  "n_train_index": 2872,
+  "n_golden": 60,
+  "n_behavioral": 3,
+  "source_sha256": {
+    "../HW3/data/train.jsonl": "fb3345808d476b674c26ffcdd5fa227f4d3ed198a4bbae3a0652ff07489691ec",
+    "../HW3/data/test.jsonl": "0a6b2db6a76fa6aee2d8e94119dd279109522e0fc28f76a6fde24149f3dec31c",
+    "../HW4/data/train.jsonl": "fb3345808d476b674c26ffcdd5fa227f4d3ed198a4bbae3a0652ff07489691ec",
+    "../HW4/data/tokenized/train.pt": "cd7978be151b5040fd2e3ff1e20bca8388917158746f5a3b168b493e8fe37092",
+    "../HW4/data/tokenized/val.pt": "82325ec177fec13a274d218feaece6afd1a6f4663dce5e76287ce6cc2c204fcd",
+    "../HW4/params.yaml": "ca930d06c897cdc40162d4663a0fce9f846c146d29f27f2dfe986b879efed122",
+    "../HW3/sources/data/world_v1.jsonl": "eb25746ca5b3979e94ef942d760c5d438e63505a81acb62b51c1257408873ea3",
+    "../HW3/sources/data/world_v2.jsonl": "53251f46cfd5d03b1ea282f42925f1eddc03142d157ff66ea082d8d0e556eb2a",
+    "../HW4/src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "../HW4/src/collate.py": "f892f3864c73c767d7187899ab83ef79a73b16d8fa53c070579d24e01247902b",
+    "../HW4/src/config.py": "42989176e306eea2589e29f8156ce5cee40e661f784110919f7ede3b500627ab",
+    "../HW4/src/pack.py": "62adb918333b87ffc4bcb9cab3fd3142c21792d8d620283cc55eb252c5c58065",
+    "../HW4/src/prompt.py": "344c8029ef004591b1f25f52cba85ad91b9ef3f26bd660bf24692a4f684f9a07",
+    "../HW4/src/tokenize_data.py": "850ceb1fb96e59ab02d3ecf8a40f54eb2c7e6587633bbdf45eae3918e26b4c22"
+  },
+  "tokenized_examples_exactly_reencoded": 2872,
+  "entity_groups": 60,
+  "train_groups": 718,
+  "note": "Golden извлечён из test ДЗ3; эти 60 групп теперь regression, не независимый final audit. ID, группы, исходные вопросы и все тензоры train проверены; смысловая утечка вручную ограничена review по сущности."
+}
