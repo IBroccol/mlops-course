@@ -133,4 +133,6 @@ A/B, перестановкой порядка и сохранением вер�
 - [reports/check-all.txt](reports/check-all.txt): фактические проверки и отпечаток.
 - [reports/quality-gate.json](reports/quality-gate.json), [reports/negative-raw-gate.json](reports/negative-raw-gate.json).
 - [data-access.md](data-access.md): DVC и доступное приложение с данными.
-- Видео с реальными снимками MLflow и озвученным разбором — `submission/hw67-demo.mp4`.
+- Немой скринкаст в тёмной теме с презентацией, файлами и живой консолью VS Code — `submission/hw67-demo.mp4`.
+- Презентация: [presentation/hw67-defense.pptx](presentation/hw67-defense.pptx).
+- Повторные проверки от 27.10.2026: [video-checks/check-all-2026-10-27.txt](video-checks/check-all-2026-10-27.txt).
