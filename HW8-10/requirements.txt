@@ -1,0 +1,3 @@
+prefect==3.4.19
+fastapi==0.115.12
+uvicorn==0.34.2

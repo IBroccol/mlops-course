@@ -1,0 +1,65 @@
+test_actual_loaded_version_and_rollback (test_integration.IntegrationTests) ... FAIL
+test_cache_recovery_and_input_change (test_integration.IntegrationTests) ... FAIL
+test_duplicate_publication (test_integration.IntegrationTests) ... FAIL
+test_incomplete_foreign_and_rejection_preserve_pointer (test_integration.IntegrationTests) ... FAIL
+test_invalid_requests_never_call_backend (test_integration.IntegrationTests) ... FAIL
+test_readiness_blocks_generation (test_integration.IntegrationTests) ... FAIL
+
+======================================================================
+FAIL: test_actual_loaded_version_and_rollback (test_integration.IntegrationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_integration.py", line 100, in test_actual_loaded_version_and_rollback
+    self.assertEqual(ask(), 'fixture-A')
+AssertionError: 'fixture-B' != 'fixture-A'
+- fixture-B
+?         ^
++ fixture-A
+?         ^
+
+
+======================================================================
+FAIL: test_cache_recovery_and_input_change (test_integration.IntegrationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_integration.py", line 68, in test_cache_recovery_and_input_change
+    self.assertIn('PREPARED', third.stdout)
+AssertionError: 'PREPARED' not found in 'CACHE_HIT 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4\nPUBLISHED fixture-B\n'
+
+======================================================================
+FAIL: test_duplicate_publication (test_integration.IntegrationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_integration.py", line 79, in test_duplicate_publication
+    self.assertEqual(len(events), 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_incomplete_foreign_and_rejection_preserve_pointer (test_integration.IntegrationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_integration.py", line 73, in test_incomplete_foreign_and_rejection_preserve_pointer
+    self.assertNotEqual(r.returncode, 0, report)
+AssertionError: 0 == 0 : report-incomplete.json
+
+======================================================================
+FAIL: test_invalid_requests_never_call_backend (test_integration.IntegrationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_integration.py", line 91, in test_invalid_requests_never_call_backend
+    self.assertTrue(400 <= request(port, '/generate', payload)[0] < 500, payload)
+AssertionError: False is not true : {'prompt': '', 'max_new_tokens': 1}
+
+======================================================================
+FAIL: test_readiness_blocks_generation (test_integration.IntegrationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_integration.py", line 83, in test_readiness_blocks_generation
+    self.assertEqual(request(port, '/ready')[0], 503)
+AssertionError: 200 != 503
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.013s
+
+FAILED (failures=6)
+exit=1

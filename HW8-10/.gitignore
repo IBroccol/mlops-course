@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+models/
+.cache/
+*.safetensors
+*.bin
+*.pt
+.lab*/
+
+.real/
+.prefect/
+submission/*
+!submission/hw8910-demo-v3.mp4

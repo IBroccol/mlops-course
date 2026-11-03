@@ -1,0 +1,24 @@
+{
+  "ready": {
+    "ready": true,
+    "model_id": "baseline-c1899de289a04d12100db370d81485cdf75e47ca"
+  },
+  "invalid": [
+    422,
+    {
+      "detail": "max_new_tokens must equal evaluated limit 32"
+    }
+  ],
+  "response": [
+    200,
+    {
+      "answer": "{\"answer\": \"A\"}",
+      "output_tokens": 7,
+      "generation_seconds": 0.2670837080004276,
+      "model_id": "baseline-c1899de289a04d12100db370d81485cdf75e47ca",
+      "runtime_sha256": "83ebd7b9499b40bd0993bd0b8da0180bfaef96130191fece220329c53fa3d91c",
+      "request_id": "fdb8a6ac-6875-4938-ae23-579867bd0c81",
+      "total_seconds": 0.2671316250016389
+    }
+  ]
+}

@@ -1,0 +1,458 @@
+Создан синтетический стенд: /Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.lab-flow-v3
+--- fail after preparation ---
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:27:57.420 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8395
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:27:59.507 | INFO    | Flow run 'warping-emu' - Beginning flow run 'warping-emu' for flow 'model-release'
+19:27:59.525 | INFO    | Task run 'prepare-with-persistent-content-cache-91a' - Finished in state Completed()
+19:27:59.526 | ERROR   | Flow run 'warping-emu' - Encountered exception during execution: RuntimeError('Инъекция сбоя после подготовки')
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 781, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1395, in run_flow_sync
+    engine.call_flow_fn()
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 801, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 36, in model_release
+    if fail_after_prepare: raise RuntimeError('Инъекция сбоя после подготовки')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Инъекция сбоя после подготовки
+19:27:59.548 | INFO    | Flow run 'warping-emu' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Инъекция сбоя после подготовки')
+PREPARED 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 45, in <module>
+    model_release(str(a.workspace.resolve()),a.manifest,a.report,a.fail_after_prepare,a.fail_after_pointer)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flows.py", line 1702, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1552, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1397, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 361, in result
+    raise self._raised
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 781, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1395, in run_flow_sync
+    engine.call_flow_fn()
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 801, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 36, in model_release
+    if fail_after_prepare: raise RuntimeError('Инъекция сбоя после подготовки')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Инъекция сбоя после подготовки
+19:27:59.559 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8395
+failure_exit=1
+--- resume in a new process ---
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:02.169 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8608
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:04.251 | INFO    | Flow run 'paper-caracal' - Beginning flow run 'paper-caracal' for flow 'model-release'
+19:28:04.268 | INFO    | Task run 'prepare-with-persistent-content-cache-789' - Finished in state Completed()
+19:28:04.277 | INFO    | Task run 'obtain-and-verify-existing-artifact-e0f' - Finished in state Completed()
+19:28:04.287 | INFO    | Task run 'evaluate-release-contract-66e' - Finished in state Completed()
+19:28:04.297 | INFO    | Task run 'publish-idempotently-d9b' - Finished in state Completed()
+19:28:04.307 | INFO    | Flow run 'paper-caracal' - Finished in state Completed()
+CACHE_HIT 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+19:28:04.315 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8608
+resume_exit=0
+--- same path, new content ---
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:07.064 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8849
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:08.911 | INFO    | Flow run 'stylish-muskrat' - Beginning flow run 'stylish-muskrat' for flow 'model-release'
+19:28:08.927 | INFO    | Task run 'prepare-with-persistent-content-cache-925' - Finished in state Completed()
+19:28:08.937 | INFO    | Task run 'obtain-and-verify-existing-artifact-4d4' - Finished in state Completed()
+19:28:08.946 | INFO    | Task run 'evaluate-release-contract-223' - Finished in state Completed()
+19:28:08.956 | INFO    | Task run 'publish-idempotently-c4a' - Finished in state Completed()
+19:28:08.964 | INFO    | Flow run 'stylish-muskrat' - Finished in state Completed()
+PREPARED 80aef4410159bcce89ce5622f1131007346a786b0486c853c40920beb295bde1
+PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+19:28:08.972 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8849
+changed_exit=0
+--- rejected report and pointer checksum ---
+aabbb5ffa93b32971a2404bbcd44a510affb7fd52d81784ef92b6b72cfcea8f3  /Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.lab-flow-v3/accepted.json
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:11.785 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8177
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:13.759 | INFO    | Flow run 'tiny-whippet' - Beginning flow run 'tiny-whippet' for flow 'model-release'
+19:28:13.775 | INFO    | Task run 'prepare-with-persistent-content-cache-f28' - Finished in state Completed()
+19:28:13.784 | INFO    | Task run 'obtain-and-verify-existing-artifact-639' - Finished in state Completed()
+19:28:13.793 | ERROR   | Task run 'evaluate-release-contract-f02' - Task run failed with exception: ValueError('gate rejected')
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 870, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1510, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 887, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 22, in gate
+    release.validate_release(m,r)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/release.py", line 36, in validate_release
+    if report['status'] != 'complete' or report['passed'] is not True: raise ValueError('gate rejected')
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: gate rejected
+19:28:13.798 | ERROR   | Task run 'evaluate-release-contract-f02' - Finished in state Failed('Task run encountered an exception ValueError: gate rejected')
+19:28:13.798 | ERROR   | Flow run 'tiny-whippet' - Encountered exception during execution: ValueError('gate rejected')
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 781, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1395, in run_flow_sync
+    engine.call_flow_fn()
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 801, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 37, in model_release
+    ref=artifact(root, manifest_name); decision=gate(root, ref, report_name)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/tasks.py", line 1139, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1737, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1512, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 493, in result
+    raise self._raised
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 870, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1510, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 887, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 22, in gate
+    release.validate_release(m,r)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/release.py", line 36, in validate_release
+    if report['status'] != 'complete' or report['passed'] is not True: raise ValueError('gate rejected')
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: gate rejected
+19:28:13.810 | INFO    | Flow run 'tiny-whippet' - Finished in state Failed('Flow run encountered an exception: ValueError: gate rejected')
+CACHE_HIT 80aef4410159bcce89ce5622f1131007346a786b0486c853c40920beb295bde1
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 45, in <module>
+    model_release(str(a.workspace.resolve()),a.manifest,a.report,a.fail_after_prepare,a.fail_after_pointer)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flows.py", line 1702, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1552, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1397, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 361, in result
+    raise self._raised
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 781, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1395, in run_flow_sync
+    engine.call_flow_fn()
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 801, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 37, in model_release
+    ref=artifact(root, manifest_name); decision=gate(root, ref, report_name)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/tasks.py", line 1139, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1737, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1512, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 493, in result
+    raise self._raised
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 870, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1510, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 887, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 22, in gate
+    release.validate_release(m,r)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/release.py", line 36, in validate_release
+    if report['status'] != 'complete' or report['passed'] is not True: raise ValueError('gate rejected')
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: gate rejected
+19:28:13.820 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8177
+reject_exit=1
+aabbb5ffa93b32971a2404bbcd44a510affb7fd52d81784ef92b6b72cfcea8f3  /Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.lab-flow-v3/accepted.json
+--- pointer/journal crash and repeat ---
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:16.381 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8105
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:18.261 | INFO    | Flow run 'modest-duck' - Beginning flow run 'modest-duck' for flow 'model-release'
+19:28:18.277 | INFO    | Task run 'prepare-with-persistent-content-cache-c7a' - Finished in state Completed()
+19:28:18.286 | INFO    | Task run 'obtain-and-verify-existing-artifact-dc9' - Finished in state Completed()
+19:28:18.295 | INFO    | Task run 'evaluate-release-contract-1ac' - Finished in state Completed()
+19:28:18.304 | ERROR   | Task run 'publish-idempotently-366' - Task run failed with exception: RuntimeError('Инъекция сбоя после указателя')
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 870, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1510, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 887, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 28, in publish
+    root=Path(root); lab.publish_release(root,lab.read(artifact_ref['manifest_uri']),lab.read(report_ref['report_uri']),prepared,fail_after_pointer)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/lab.py", line 81, in publish_release
+    if fail_after_pointer: raise RuntimeError('Инъекция сбоя после указателя')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Инъекция сбоя после указателя
+19:28:18.308 | ERROR   | Task run 'publish-idempotently-366' - Finished in state Failed('Task run encountered an exception RuntimeError: Инъекция сбоя после указателя')
+19:28:18.309 | ERROR   | Flow run 'modest-duck' - Encountered exception during execution: RuntimeError('Инъекция сбоя после указателя')
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 781, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1395, in run_flow_sync
+    engine.call_flow_fn()
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 801, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 38, in model_release
+    publish(root,ref,decision,prepared,fail_after_pointer)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/tasks.py", line 1139, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1737, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1512, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 493, in result
+    raise self._raised
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 870, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1510, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 887, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 28, in publish
+    root=Path(root); lab.publish_release(root,lab.read(artifact_ref['manifest_uri']),lab.read(report_ref['report_uri']),prepared,fail_after_pointer)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/lab.py", line 81, in publish_release
+    if fail_after_pointer: raise RuntimeError('Инъекция сбоя после указателя')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Инъекция сбоя после указателя
+19:28:18.320 | INFO    | Flow run 'modest-duck' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Инъекция сбоя после указателя')
+CACHE_HIT 80aef4410159bcce89ce5622f1131007346a786b0486c853c40920beb295bde1
+Traceback (most recent call last):
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 45, in <module>
+    model_release(str(a.workspace.resolve()),a.manifest,a.report,a.fail_after_prepare,a.fail_after_pointer)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flows.py", line 1702, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1552, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1397, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 361, in result
+    raise self._raised
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 781, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1395, in run_flow_sync
+    engine.call_flow_fn()
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 801, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 38, in model_release
+    publish(root,ref,decision,prepared,fail_after_pointer)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/tasks.py", line 1139, in __call__
+    return run_task(
+           ^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1737, in run_task
+    return run_task_sync(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1512, in run_task_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 493, in result
+    raise self._raised
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 870, in run_context
+    yield self
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1510, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 887, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/prefect/utilities/callables.py", line 210, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/flow.py", line 28, in publish
+    root=Path(root); lab.publish_release(root,lab.read(artifact_ref['manifest_uri']),lab.read(report_ref['report_uri']),prepared,fail_after_pointer)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/lab.py", line 81, in publish_release
+    if fail_after_pointer: raise RuntimeError('Инъекция сбоя после указателя')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Инъекция сбоя после указателя
+19:28:18.330 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8105
+pointer_crash_exit=1
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:20.910 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8166
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:22.788 | INFO    | Flow run 'naughty-muskrat' - Beginning flow run 'naughty-muskrat' for flow 'model-release'
+19:28:22.804 | INFO    | Task run 'prepare-with-persistent-content-cache-19b' - Finished in state Completed()
+19:28:22.813 | INFO    | Task run 'obtain-and-verify-existing-artifact-1b4' - Finished in state Completed()
+19:28:22.822 | INFO    | Task run 'evaluate-release-contract-2a2' - Finished in state Completed()
+19:28:22.833 | INFO    | Task run 'publish-idempotently-9b4' - Finished in state Completed()
+19:28:22.841 | INFO    | Flow run 'naughty-muskrat' - Finished in state Completed()
+CACHE_HIT 80aef4410159bcce89ce5622f1131007346a786b0486c853c40920beb295bde1
+PUBLISHED fixture-B 87f5fb6b363fc739e6bada93edfaecbb2d4f4f1bd2e34d9672d773a2d71e8d10
+19:28:22.849 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8166
+recovery_exit=0
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:25.402 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8903
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'default' attribute with value 'UTC' was provided to the `Field()` function, which has no effect in the context it was used. 'default' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `pyproject_toml_table_header` is set in model_config but will be ignored because no PyprojectTomlConfigSettingsSource source is configured. To use this config key, add a PyprojectTomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic_settings/main.py:554: UserWarning: Config key `toml_file` is set in model_config but will be ignored because no TomlConfigSettingsSource source is configured. To use this config key, add a TomlConfigSettingsSource source to the settings sources via the settings_customise_sources hook.
+  cls._settings_warn_unused_config_keys(sources, cls.model_config)
+/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2350: UnsupportedFieldAttributeWarning: The 'deprecated' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'deprecated' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+19:28:27.271 | INFO    | Flow run 'clay-quoll' - Beginning flow run 'clay-quoll' for flow 'model-release'
+19:28:27.286 | INFO    | Task run 'prepare-with-persistent-content-cache-54b' - Finished in state Completed()
+19:28:27.296 | INFO    | Task run 'obtain-and-verify-existing-artifact-5f0' - Finished in state Completed()
+19:28:27.305 | INFO    | Task run 'evaluate-release-contract-73c' - Finished in state Completed()
+19:28:27.314 | INFO    | Task run 'publish-idempotently-716' - Finished in state Completed()
+19:28:27.322 | INFO    | Flow run 'clay-quoll' - Finished in state Completed()
+CACHE_HIT 80aef4410159bcce89ce5622f1131007346a786b0486c853c40920beb295bde1
+PUBLISHED fixture-B 87f5fb6b363fc739e6bada93edfaecbb2d4f4f1bd2e34d9672d773a2d71e8d10
+19:28:27.329 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8903
+repeat_exit=0
+{"release_id": "330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda", "model_id": "fixture-B", "prepared": "88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4"}
+{"release_id": "87f5fb6b363fc739e6bada93edfaecbb2d4f4f1bd2e34d9672d773a2d71e8d10", "model_id": "fixture-B", "prepared": "80aef4410159bcce89ce5622f1131007346a786b0486c853c40920beb295bde1"}

@@ -1,0 +1,43 @@
+{
+  "model_id": "baseline-c1899de289a04d12100db370d81485cdf75e47ca",
+  "model_sha256": "052d8c0b8c31f61d79bcbbcca49c85414118746986773d57fb6a56f58e5a0c09",
+  "protocol_sha256": "297a318238f5b22c874a5838cb9f9756fef714fad5be2ed90cd3cef68c1aa11b",
+  "golden_sha256": "f51f76e2cf483aff22fdae1c2ec71022c5eb8f0709577f6421190bcc95f15417",
+  "runtime_sha256": "83ebd7b9499b40bd0993bd0b8da0180bfaef96130191fece220329c53fa3d91c",
+  "status": "complete",
+  "passed": true,
+  "evaluation_run_id": "a1705c3377124386bcc3ff2aef4ac7a3",
+  "metrics": {
+    "accuracy": 0.8166666666666667,
+    "format_rate": 0.9833333333333333
+  },
+  "source_reports": {
+    "baseline": {
+      "report": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/baseline-eval.json",
+      "report_sha256": "9614a02da9e818fa769862f9f951ddd7af9926fa86ae3ac6ea0903c604466801",
+      "outputs": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/baseline-outputs.json",
+      "outputs_sha256": "1947c9ecc6df29b5e718ea1ddbca8e282fc9ea876c6bf594599c48e2d3bd5151"
+    },
+    "candidate": {
+      "report": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/candidate-eval.json",
+      "report_sha256": "950d90d7641a9a3cccfcac29cb02f3edd7aca8f35f2f9d1e2ea831a4957e93c4",
+      "outputs": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/candidate-outputs.json",
+      "outputs_sha256": "dd7f5f3ab334a68513a58b9dddd9417980a52a119e9a531ec79a3274f68166e1"
+    }
+  },
+  "decision": {
+    "passed": true,
+    "n": 60,
+    "critical_slices": [
+      "country_lookup",
+      "hemisphere",
+      "capital_lookup"
+    ],
+    "behavioral_passed": 3,
+    "accuracy_delta": 0.0,
+    "format_rate_delta": 0.0,
+    "protocol_sha256": "297a318238f5b22c874a5838cb9f9756fef714fad5be2ed90cd3cef68c1aa11b"
+  },
+  "evaluation_role": "baseline",
+  "scope": "baseline compared with itself as existing fallback"
+}
