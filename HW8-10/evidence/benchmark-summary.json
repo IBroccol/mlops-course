@@ -1,0 +1,22 @@
+[
+  {
+    "concurrency": 1,
+    "n": 8,
+    "successes": 8,
+    "errors": 0,
+    "batch_seconds": 1.8221539170008327,
+    "successful_rps": 4.390408475024749,
+    "mean_success_latency": 0.2276800674999322,
+    "max_success_latency": 0.22888154199972632
+  },
+  {
+    "concurrency": 2,
+    "n": 8,
+    "successes": 8,
+    "errors": 0,
+    "batch_seconds": 1.895930500002578,
+    "successful_rps": 4.219563955529552,
+    "mean_success_latency": 0.44561303650061745,
+    "max_success_latency": 0.5307849169985275
+  }
+]

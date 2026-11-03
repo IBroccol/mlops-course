@@ -1,0 +1,15 @@
+test_replace_failure_keeps_old_bytes (test_atomic_regression.AtomicWriteRegression) ... FAIL
+
+======================================================================
+FAIL: test_replace_failure_keeps_old_bytes (test_atomic_regression.AtomicWriteRegression)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_atomic_regression.py", line 16, in test_replace_failure_keeps_old_bytes
+    with self.assertRaises(OSError): release.publish(manifest,report,path)
+AssertionError: OSError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)
+exit=1

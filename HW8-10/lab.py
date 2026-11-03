@@ -6,6 +6,8 @@
 import argparse
 import hashlib
 import json
+import time
+import uuid
 from pathlib import Path
 import release
 
@@ -53,32 +55,63 @@ def initialize(root):
 
 
 def prepare(root):
-    config=read(root/'config.json');key=release.cache_key(root/'input.txt',config)
+    import inspect
+    config=read(root/'config.json')
+    config['code_sha256']=digest(inspect.getsource(prepare).encode())
+    key=release.cache_key(root/'input.txt',config)
     cache=root/'cache';cache.mkdir(exist_ok=True);entry=cache/(key+'.json')
     if entry.exists():
         result=read(entry);print('CACHE_HIT',result['input_sha256']);return result
     payload=(root/'input.txt').read_bytes()
-    result={'input_sha256':digest(payload),'rows':len(payload.splitlines()),'config':config}
+    lines=payload.decode('utf-8').splitlines()
+    if not lines or any(not line.strip() for line in lines): raise ValueError('input contains no rows or blank rows')
+    if not all(k in config for k in ('tokenizer_revision','template_sha256','max_length','code_revision')): raise ValueError('incomplete preparation config')
+    result={'input_sha256':digest(payload),'rows':len(lines),'config':config}
     write(entry,result);print('PREPARED',result['input_sha256']);return result
 
 
-def run(root,report_name,fail_after_prepare=False):
-    prepared=prepare(root)
-    if fail_after_prepare:raise RuntimeError('Инъекция сбоя после подготовки')
-    manifest=read(root/'manifest-B.json');report=read(root/report_name)
-    release.publish(manifest,report,root/'accepted.json')
-    with (root/'publications.jsonl').open('a') as f:
-        f.write(json.dumps({'model_id':manifest['model_id'],'prepared':prepared['input_sha256']})+'\n')
-    print('PUBLISHED',manifest['model_id'])
+def publish_release(root, manifest, report, prepared, fail_after_pointer=False):
+    release.verify_files(manifest, Path(manifest.get('artifact_root', str(root))))
+    release.validate_release(manifest, report)
+    release.verify_evidence(report, manifest)
+    release_id=digest(canonical({'manifest':manifest, 'report':report}))
+    journal=root/'publications.jsonl'
+    previous=read(root/'accepted.json') if (root/'accepted.json').exists() else None
+    release.publish(manifest, report, root/'accepted.json')
+    if fail_after_pointer: raise RuntimeError('Инъекция сбоя после указателя')
+    events=[json.loads(line) for line in journal.read_text().splitlines()] if journal.exists() else []
+    if not events or events[-1]['release_id'] != release_id or previous != manifest:
+        with journal.open('a') as f:
+            f.write(json.dumps({'release_id':release_id,'model_id':manifest['model_id'],
+                                'prepared':prepared['input_sha256']})+'\n')
+            f.flush()
+            import os; os.fsync(f.fileno())
+    print('PUBLISHED',manifest['model_id'],release_id)
 
+
+def append_attempt(root, attempt_id, status, error=None):
+    with (root/'attempts.jsonl').open('a') as f:
+        f.write(json.dumps({'attempt_id':attempt_id,'status':status,'error':error,'time':time.time()},ensure_ascii=False)+'\n')
+
+
+def run(root,report_name,fail_after_prepare=False,fail_after_pointer=False,manifest_name="manifest-B.json"):
+    attempt_id=str(uuid.uuid4())
+    try:
+        prepared=prepare(root)
+        if fail_after_prepare:raise RuntimeError('Инъекция сбоя после подготовки')
+        manifest=read(root/manifest_name);report=read(root/report_name)
+        publish_release(root,manifest,report,prepared,fail_after_pointer)
+    except Exception as exc:
+        append_attempt(root,attempt_id,'failed',str(exc)); raise
+    append_attempt(root,attempt_id,'completed')
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--workspace',type=Path,default=Path('.lab'))
     sub=parser.add_subparsers(dest='command',required=True);sub.add_parser('init')
-    run_parser=sub.add_parser('run');run_parser.add_argument('--report',default='report-B.json');run_parser.add_argument('--fail-after-prepare',action='store_true')
+    run_parser=sub.add_parser('run');run_parser.add_argument('--report',default='report-B.json');run_parser.add_argument('--manifest',default='manifest-B.json');run_parser.add_argument('--fail-after-prepare',action='store_true');run_parser.add_argument('--fail-after-pointer',action='store_true')
     args=parser.parse_args()
     if args.command=='init':initialize(args.workspace)
-    else:run(args.workspace,args.report,args.fail_after_prepare)
+    else:run(args.workspace,args.report,args.fail_after_prepare,args.fail_after_pointer,args.manifest)
 
 
 if __name__=='__main__':main()

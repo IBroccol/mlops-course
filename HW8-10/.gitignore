@@ -8,3 +8,7 @@ models/
 *.bin
 *.pt
 .lab*/
+
+.real/
+.prefect/
+submission/

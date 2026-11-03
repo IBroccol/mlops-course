@@ -1,0 +1,23 @@
+{
+  "candidate_gate": {
+    "passed": false,
+    "reason": "accuracy: 0.7667 < 0.8167; Критический срез hemisphere: регрессия accuracy"
+  },
+  "baseline_gate": {
+    "passed": true,
+    "n": 60,
+    "critical_slices": [
+      "country_lookup",
+      "hemisphere",
+      "capital_lookup"
+    ],
+    "behavioral_passed": 3,
+    "accuracy_delta": 0.0,
+    "format_rate_delta": 0.0,
+    "protocol_sha256": "297a318238f5b22c874a5838cb9f9756fef714fad5be2ed90cd3cef68c1aa11b"
+  },
+  "root": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW8-10/.real",
+  "model_sha256": "052d8c0b8c31f61d79bcbbcca49c85414118746986773d57fb6a56f58e5a0c09",
+  "runtime_sha256": "83ebd7b9499b40bd0993bd0b8da0180bfaef96130191fece220329c53fa3d91c"
+}
+exit=0

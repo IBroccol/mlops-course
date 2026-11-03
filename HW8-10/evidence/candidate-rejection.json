@@ -1,0 +1,28 @@
+{
+  "candidate": {
+    "kind": "adapter",
+    "name": "wikidata-geography-adapter",
+    "version": "1",
+    "run_id": "f27ff086cbfa47a7aa515f076fef28a8",
+    "uri": "models:/wikidata-geography-adapter/1"
+  },
+  "decision": {
+    "passed": false,
+    "reason": "accuracy: 0.7667 < 0.8167; Критический срез hemisphere: регрессия accuracy"
+  },
+  "source_reports": {
+    "baseline": {
+      "report": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/baseline-eval.json",
+      "report_sha256": "9614a02da9e818fa769862f9f951ddd7af9926fa86ae3ac6ea0903c604466801",
+      "outputs": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/baseline-outputs.json",
+      "outputs_sha256": "1947c9ecc6df29b5e718ea1ddbca8e282fc9ea876c6bf594599c48e2d3bd5151"
+    },
+    "candidate": {
+      "report": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/candidate-eval.json",
+      "report_sha256": "950d90d7641a9a3cccfcac29cb02f3edd7aca8f35f2f9d1e2ea831a4957e93c4",
+      "outputs": "/Users/kulikov-vanya/Documents/Univercity/MLOPS/mlops-course/HW6-7/docs/reports/candidate-outputs.json",
+      "outputs_sha256": "dd7f5f3ab334a68513a58b9dddd9417980a52a119e9a531ec79a3274f68166e1"
+    }
+  },
+  "protocol_sha256": "297a318238f5b22c874a5838cb9f9756fef714fad5be2ed90cd3cef68c1aa11b"
+}

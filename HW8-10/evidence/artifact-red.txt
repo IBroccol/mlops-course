@@ -1,0 +1,15 @@
+test_modified_artifact_rejected (test_integration.IntegrationTests) ... FAIL
+
+======================================================================
+FAIL: test_modified_artifact_rejected (test_integration.IntegrationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hw8910-original-test/tests/test_integration.py", line 116, in test_modified_artifact_rejected
+    self.assertNotEqual(r.returncode,0)
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.099s
+
+FAILED (failures=1)
+exit=1
