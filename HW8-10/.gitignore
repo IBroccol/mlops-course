@@ -11,4 +11,5 @@ models/
 
 .real/
 .prefect/
-submission/
+submission/*
+!submission/hw8910-demo-v3.mp4
